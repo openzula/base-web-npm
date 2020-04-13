@@ -1,4 +1,5 @@
-FROM node:alpine
+ARG NODE_VERSION=alpine
+FROM node:$NODE_VERSION
 LABEL maintainer="alex@openzula.org"
 
 RUN apk update

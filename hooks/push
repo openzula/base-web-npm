@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Push latest
+docker push $DOCKER_REPO
+
+# Push LTS and Node 8 through 13
+for version in lts {8..13}; do
+    docker push "${DOCKER_REPO}:node-${version}"
+done

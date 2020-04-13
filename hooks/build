@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Build latest
+docker build -f $DOCKERFILE_PATH -t $IMAGE_NAME .
+
+# Build LTS and Node 8 through 13
+for version in lts {8..13}; do
+    docker build --build-arg NODE_VERSION="${version}-alpine" -f $DOCKERFILE_PATH -t "${DOCKER_REPO}:node-${version}" .
+done
